@@ -1,5 +1,5 @@
 module.exports= mongoose=>{
-    var schemaUser = mongoose.Schema({
+    var schema = mongoose.Schema({
     fname: {
         type: String,
         require: true
@@ -12,12 +12,12 @@ module.exports= mongoose=>{
     }
 
     })
-schemaUser.method("toJSON", function() {
+schema.method("toJSON", function() {
     const {_v, _id, ...object } = this.toObject();
     object.id = _id;
     return object;
 });
 
-let User = mongoose.model('User',schemaUser );
-return User
+let  Hero = mongoose.model( 'heroes',schema );
+return Hero
 }

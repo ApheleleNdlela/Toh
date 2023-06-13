@@ -27,6 +27,7 @@ exports.create = async (req, res)=>{
         // password : req.body.password
         weakness : req.body.weakness,
         strength : req.body.strength
+        // id : schemaUser.length + 1
         // image : req.body.image
     })
 
@@ -99,10 +100,11 @@ exports.update = (req, res)=>{
             .then(data =>{
                 res.send(data)
                 console.log(data)
-                .catch(error => {
-                    res.status(500).send("could not find user", error)
-                    console.log('could not get user', error)
-                })
+                
+            })
+            .catch(error => {
+                res.status(500).send("could not find user", error)
+                console.log('could not get user', error)
             })
     
         
